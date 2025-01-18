@@ -16,7 +16,7 @@ function main_menu() {
         echo "2. 查看日志"
         echo "3. 查看积分"
         echo "4. 删除节点（停止节点）"
-        echo "6. 退出脚本"
+        echo "5. 退出脚本"
         echo "================================================================"
         read -p "请输入选择 (1/2/3/4/5): " choice
 
@@ -55,8 +55,6 @@ function deploy_hyperspace_node() {
             return
         fi
     fi
-}
-
 
     # 提示输入屏幕名称，默认值为 'hyper'
     read -p "请输入屏幕名称 (默认值: hyper): " screen_name
