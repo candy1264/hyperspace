@@ -34,8 +34,8 @@ function main_menu() {
 # 部署hyperspace节点
 function deploy_hyperspace_node() {
     # 执行安装命令
-    echo "正在执行安装命令：curl https://download.hyper.space/api/install | bash"
-    curl https://download.hyper.space/api/install | bash
+    echo "正在执行安装命令：curl https://raw.githubusercontent.com/candy1264/hyperspace/refs/heads/main/hyper2.sh | bash"
+    curl https://raw.githubusercontent.com/candy1264/hyperspace/refs/heads/main/hyper2.sh | bash
 
     # 获取安装后新添加的路径
     NEW_PATH=$(bash -c 'source /root/.bashrc && echo $PATH')
@@ -55,6 +55,8 @@ function deploy_hyperspace_node() {
             return
         fi
     fi
+}
+
 
     # 提示输入屏幕名称，默认值为 'hyper'
     read -p "请输入屏幕名称 (默认值: hyper): " screen_name
