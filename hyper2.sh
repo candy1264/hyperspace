@@ -205,7 +205,7 @@ EOT
 
 # Fetch the latest release information from GitHub
 fetch_latest_release() {
-    curl -s "https://api.github.com/repos/$REPO_OWNER/$REPO_SLUG/releases/latest"
+    wget -qO- "https://api.github.com/repos/$REPO_OWNER/$REPO_SLUG/releases/latest"
 }
 
 # Get the download URL for the appropriate asset
@@ -255,7 +255,7 @@ download_with_retry() {
     trap 'echo_and_log "ERROR" "Download interrupted. Cleaning up..."; rm -f "$output"; exit 1' INT TERM
 
     while [ $attempt -le $max_attempts ]; do
-        if curl -L --fail -o "$output" "$url"; then
+        if wget -q --show-progress -O "$output" "$url"; then
             trap - INT TERM
             return 0
         else
